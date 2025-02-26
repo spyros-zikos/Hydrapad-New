@@ -321,7 +321,7 @@ contract HydrapadPresaleToken is IERC20, ERC20Burnable, ReentrancyGuard {
 
     /**
      * @dev Calculates amountIn given amountOut
-     * @dev Calculates dx = x * dy / y + dy
+     * @dev Calculates dx = x * dy / y - dy
      *
      * @param amountOut - amount out which will be sent to the user
      * @param remainingIn - remaining in

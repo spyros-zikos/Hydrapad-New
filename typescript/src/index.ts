@@ -51,9 +51,9 @@ generateSignature(
     "My", // name
     "M", // symbol
     1, // nonce
-    "0xCe2A936356a8E0651811149B90583986e2fC0d4a", // factory address
+    "0x6711893cd7b41552D74CeBbEc8e93773a5E9Ac66", // factory address
     80002, // chainId (base: 8453, polygon: 137, amoy: 80002)
-    "0x993461BBf7e553eb5BD1F5248A72B524C4a3B15D", // msg.sender (0x3B118745852D2E54D82Eb38c581136529E42549f)
+    "0xc6d37C379816c96344b0e9523AC440523052675F",//"0x993461BBf7e553eb5BD1F5248A72B524C4a3B15D", // msg.sender (0x3B118745852D2E54D82Eb38c581136529E42549f)
     process.env.PRIVATE_KEY!
 ).then(result => {
     console.log("\nAll results:");

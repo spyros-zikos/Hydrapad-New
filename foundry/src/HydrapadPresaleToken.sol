@@ -298,15 +298,15 @@ contract HydrapadPresaleToken is IERC20, ERC20Burnable, ReentrancyGuard {
      * @param amountIn - amount in which will be transfered to the contract
      * @param remainingIn - remaining in
      * @param remainingOut - remaining out
-     * @param InIsPOL - if the in token is POL
+     * @param inIsPOL - if the in token is POL
      */
     function getAmountOutAndFee(
         uint256 amountIn,
         uint256 remainingIn,
         uint256 remainingOut,
-        bool InIsPOL
+        bool inIsPOL
     ) external view returns (uint256 amountOut, uint256 fee) {
-        if (InIsPOL) {
+        if (inIsPOL) {
             (uint256 feeCollectorFee, uint256 uniFee) = _calculateFee(amountIn);
             fee = feeCollectorFee + uniFee;
 
@@ -400,7 +400,6 @@ contract HydrapadPresaleToken is IERC20, ERC20Burnable, ReentrancyGuard {
                            PUBLIC FUNCTIONS
     //////////////////////////////////////////////////////////////*/
 
-    // The market cap is calculated as the average price of a token times the total supply of the tokens
     function getMarketCap() public view returns (uint256) {
         return ((s_accumulatedPOL * totalSupply() * 1e18) / s_remainingTokens) / 1e18;
     }

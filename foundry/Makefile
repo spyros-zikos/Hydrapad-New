@@ -35,3 +35,8 @@ deploy-presale:
 	@forge script script/DeployHydrapadPresaleFactory.s.sol:DeployHydrapadPresaleFactory $(NETWORK_ARGS) --via-ir
 deploy-simple:
 	@forge script script/DeployHydrapadSimpleFactory.s.sol:DeployHydrapadSimpleFactory $(NETWORK_ARGS) --via-ir
+
+# Deploy presale token to verify the contract
+# ```make deploy-presale-token ARGS="--network amoy"
+deploy-presale-token:
+	@forge script script/DeployHydrapadPresaleToken.s.sol:DeployHydrapadPresaleToken $(NETWORK_ARGS) --via-ir

@@ -5,7 +5,7 @@ import {Script} from "forge-std/Script.sol";
 
 abstract contract CodeConstants {
     address public WHITE_HAT_DAO_ADDRESS = 0xB5A790568471c23dE46533F1706a238B04D59F25;
-    address public SIGNER = 0x993461BBf7e553eb5BD1F5248A72B524C4a3B15D;
+    address public SIGNER = 0xc6d37C379816c96344b0e9523AC440523052675F;
 
     uint256 public constant BASE_CHAIN_ID = 8453;
     uint256 public constant POLYGON_CHAIN_ID = 137;
@@ -53,21 +53,6 @@ contract HelperConfig is CodeConstants, Script {
         return getConfigByChainId(block.chainid);
     }
 
-/*
-        uint256 totalSupply,
-        uint256 remainingTokens,
-        uint256 accumulatedPOL,
-        uint256 marketCapMin,
-        uint256 marketCapMax,
-        uint256 tokensNeededToMigrate,
-        uint256 poolCreationFee,
-        uint256 migrationFee,
-        uint256 feeBPS,
-        uint256 uniFeeBPS,
-        address feeCollector,
-        address uniFeeCollector,
-        address signer,
-        address uniswapV2Router*/
     function getBaseConfig() public view returns(NetworkConfig memory) {
         return NetworkConfig({
             totalSupply: 1_000_000_000_000_000_000_000_000_000, // 1 billion
@@ -113,9 +98,9 @@ contract HelperConfig is CodeConstants, Script {
             accumulatedPOL: 1600000000000000000, // 1.6
             marketCapMin: 100000_000000000000000000,
             marketCapMax: 110000_000000000000000000,
-            tokensNeededToMigrate: 799538870462404697804703491, // 800 million
-            poolCreationFee: 50000000000000000,
-            migrationFee: 100000000000000000,
+            tokensNeededToMigrate: 800000000000000000000000000, // 800 million
+            poolCreationFee: 500000000000000000000, // 500 POL
+            migrationFee: 500000000000000000000, // 500 POL
             feeBPS: 100,
             uniFeeBPS: 6000,
             feeCollector: WHITE_HAT_DAO_ADDRESS,

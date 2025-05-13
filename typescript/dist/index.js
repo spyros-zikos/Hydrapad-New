@@ -29,10 +29,10 @@ async function generateSignature(name, symbol, nonce, factory, chainId, msgSende
 // Execute the function
 generateSignature("My", // name
 "M", // symbol
-1, // nonce
-"0x6711893cd7b41552D74CeBbEc8e93773a5E9Ac66", // factory address
-80002, // chainId (base: 8453, polygon: 137, amoy: 80002)
-"0xc6d37C379816c96344b0e9523AC440523052675F", //"0x993461BBf7e553eb5BD1F5248A72B524C4a3B15D", // msg.sender (0x3B118745852D2E54D82Eb38c581136529E42549f)
+2, // nonce
+"0xe6AFb1ADA1A0F0BC41fe0980a6bed28B10AbD228", // factory address
+137, // chainId (base: 8453, polygon: 137, amoy: 80002)
+"0x993461BBf7e553eb5BD1F5248A72B524C4a3B15D", //"0x993461BBf7e553eb5BD1F5248A72B524C4a3B15D", // msg.sender (0x3B118745852D2E54D82Eb38c581136529E42549f)
 process.env.PRIVATE_KEY).then(result => {
     console.log("\nAll results:");
     console.log(result);

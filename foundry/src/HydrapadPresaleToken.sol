@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.23;
+pragma solidity 0.8.23;
 
 import {ERC20, IERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {ERC20Burnable} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
@@ -410,11 +410,27 @@ contract HydrapadPresaleToken is IERC20, ERC20Burnable, ReentrancyGuard {
         return super.transfer(to, amount);
     }
 
+    // Override
     // transfer tokens from someone
+    // factory does not need approval to take tokens from the user
     function transferFrom(address from, address to, uint256 amount) public override(ERC20, IERC20) returns (bool) {
         if (to == i_pair && s_notMigrated) revert TokenHasNotMigratedYet(i_pair);
-        return super.transferFrom(from, to, amount);
+
+        address spender = _msgSender();
+        if (spender != i_presaleFactory)
+            _spendAllowance(from, spender, amount);
+        _transfer(from, to, amount);
+        return true;
     }
+
+    //     // Override
+    // function transferFrom(address from, address to, uint256 value) public override returns (bool) {
+    //     address spender = _msgSender();
+    //     if (spender != i_presaleFactory)
+    //         _spendAllowance(from, spender, value);
+    //     _transfer(from, to, value);
+    //     return true;
+    // }
 
     /*//////////////////////////////////////////////////////////////
                            PRIVATE FUNCTIONS
